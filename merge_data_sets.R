@@ -1,5 +1,4 @@
 merge_data_sets <- function(data_loc) {
-    require(dplyr)
     
     mkname <- function(loc, name, pfx=NA) {
         if (is.na(pfx)) {
@@ -13,35 +12,31 @@ merge_data_sets <- function(data_loc) {
     
     d_pfxs <- c("train", "test")
     
+    gres <- grep("(?:mean\\(\\)|std\\(\\))", f_names)
+    num_columns <- length(gres)
+    
+    l = as.list(c(NA, NA))
     for (i in 1:2) {
         # read X table
         x_loc <- mkname(data_loc, "X", pfx=d_pfxs[i])
         df <- read.table(x_loc)
         colnames(df) <- f_names
-        df <- df[, grep("(?:mean\\(\\)|std\\(\\))", f_names)]
-        if (i == 1) {
-            p_df <- df
-        } else {
-            df <- merge(p_df, df, all=TRUE)
-            data <- tbl_df(df)
-        }
+        df <- df[, gres]
         
-        # read y table
+        # read y vector
         y_loc <- mkname(data_loc, "y", pfx=d_pfxs[i])
-        if (i == 1) {
-            lbl <- read.table(y_loc)[, 1]
-        } else {
-            lbl <- c(lbl, read.table(y_loc)[, 1])
-        }
+        labels <- read.table(y_loc)[, 1]
+        labels_idx <- num_columns + 1
         
-        # read subject table
+        # read subject vector
         subject_loc <- mkname(data_loc, "subject", pfx=d_pfxs[i])
-        if (i == 1) {
-            sbj <- read.table(subject_loc)[, 1]
-        } else {
-            sbj <- c(sbj, read.table(subject_loc)[, 1])
-        }
+        subjects <- read.table(subject_loc)[, 1]
+        subjects_idx <- num_columns + 2
+        
+        df <- cbind(df, labels, subjects)[, c(labels_idx, subjects_idx, 1:length(gres))]
+        
+        l[[i]] <- df
     }
     
-    data %>% mutate(label=lbl, subject=sbj)
+    rbind(l[[1]], l[[2]])
 }
