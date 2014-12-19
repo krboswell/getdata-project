@@ -1,3 +1,0 @@
-name_activities <- function() {
-    
-}

@@ -1,3 +1,0 @@
-label_data <- function() {
-    
-}
