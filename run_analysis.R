@@ -22,20 +22,17 @@ run_analysis <- function() {
     #------------------------------------------------------------------------
     
     # The location of the raw data.
-    raw_data_loc <- "raw"
+    raw_data_loc <- "data/raw"
     
     # The location of the tidy data.
-    tidy_data_loc <- "tidy"
+    tidy_data_loc <- "data/tidy"
     
     #------------------------------------------------------------------------
     # Method invocations.
     #------------------------------------------------------------------------
     
-    # 0. Read the raw data sets.
-    read_data_sets()
-    
     # 1. Merge the training and the test data sets to create one data set.
-    #merge_data_sets(data)
+    merge_data_sets(raw_data_loc)
     
     # 2. Extract only the measurements on the mean and standard deviation for 
     # each measurement.
