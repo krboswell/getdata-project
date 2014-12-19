@@ -31,19 +31,9 @@ run_analysis <- function() {
     # Method invocations.
     #------------------------------------------------------------------------
     
-    # 1. Merge the training and the test data sets to create one data set.
-    merge_data_sets(raw_data_loc)
+    # Read and merge data.
+    data <- merge_data_sets(raw_data_loc)
     
-    # 2. Extract only the measurements on the mean and standard deviation for 
-    # each measurement.
-    #extract_measurements(data)
-    
-    # 3. Use descriptive activity names to name the activities in the data set.
-    #name_activities(data)
-    
-    # 4. Appropriately label the data set with descriptive variable names.
-    #label_data(data)
-    
-    # 5. Create tidy data set.
-    #create_tidy_data(data)
+    # Create tidy data set.
+    create_tidy_data(data)
 }

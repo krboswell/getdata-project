@@ -1,38 +1,47 @@
 merge_data_sets <- function(data_loc) {
     require(dplyr)
     
-    inertial_signals_dir <- "Inertial Signals"
-    
-    mkname <- function(loc, pfx, name, sfx, subdir=NA) {
-        vec <- if (is.na(subdir)) {
-            c(loc, "/", pfx, "/", name, sfx)
+    mkname <- function(loc, name, pfx=NA) {
+        if (is.na(pfx)) {
+            paste(c(loc, "/", name, ".txt"), sep="", collapse="")
         } else {
-            c(loc, "/", pfx, "/", subdir, "/", name, sfx)
-        }
-        paste(vec, sep="", collapse="")
-    }
-    
-    pfxs <- c("train", "test")
-    names <- c("body_acc", "body_gyro", "total_acc");
-    dirs <- c("x", "y", "z")
-    
-    l <<- list()
-    
-    for (name in names) {
-        for (dir in dirs) {
-            for (i in 1:2) {
-                n <- paste(c(name, "_", dir), sep="", collapse="")
-                s <- paste(c("_", pfxs[i], ".txt"), sep="", collapse="")
-                loc <- mkname(data_loc, pfxs[i], n, s, subdir=inertial_signals_dir)
-                
-                if (i == 1) {
-                    l[[n]] <<- read.table(loc)
-                } else {
-                    df <- read.table(loc)
-                    l[[n]] <<- merge(l[[n]], tbl_df(df), all=TRUE)
-                    l[[n]] <<- tbl_df(l[[n]])
-                }
-            }
+            paste(c(loc, "/", pfx, "/", name, "_", pfx, ".txt"), sep="", collapse="")
         }
     }
+    
+    f_names <- as.character(read.table(mkname(data_loc, "features"))[, 2])
+    
+    d_pfxs <- c("train", "test")
+    
+    for (i in 1:2) {
+        # read X table
+        x_loc <- mkname(data_loc, "X", pfx=d_pfxs[i])
+        df <- read.table(x_loc)
+        colnames(df) <- f_names
+        df <- df[, grep("(?:mean\\(\\)|std\\(\\))", f_names)]
+        if (i == 1) {
+            p_df <- df
+        } else {
+            df <- merge(p_df, df, all=TRUE)
+            data <- tbl_df(df)
+        }
+        
+        # read y table
+        y_loc <- mkname(data_loc, "y", pfx=d_pfxs[i])
+        if (i == 1) {
+            lbl <- read.table(y_loc)[, 1]
+        } else {
+            lbl <- c(lbl, read.table(y_loc)[, 1])
+        }
+        
+        # read subject table
+        subject_loc <- mkname(data_loc, "subject", pfx=d_pfxs[i])
+        if (i == 1) {
+            sbj <- read.table(subject_loc)[, 1]
+        } else {
+            sbj <- c(sbj, read.table(subject_loc)[, 1])
+        }
+    }
+    
+    data %>% mutate(label=lbl, subject=sbj)
 }
