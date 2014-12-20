@@ -4,16 +4,8 @@
 ## to a single, tidy, data set.
 
 ## This function is the main driver for converting the HAR raw data set to a
-## tidy data set. It invokes several helper methods that aid in the conversion.
+## tidy data set.
 ##
-## Call stack:
-## run_analysis()
-##   read_data_sets()
-##   merge_data_sets()
-##   extract_measurements()
-##   name_activities()
-##   label_data()
-##   create_tidy_data()
 
 run_analysis <- function() {
     
