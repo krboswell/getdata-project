@@ -56,7 +56,7 @@ run_analysis <- function() {
     # Replace activity identifiers with equivalent labels.
     y_data[, 1] <- activities[y_data[, 1], 2]
     
-    names(y_data) <- "activity"
+    names(y_data) <- "Activity"
 
     #------------------------------------------------------------------------
     # 4. Finish labeling the data sets and bring all of them together into
@@ -64,10 +64,24 @@ run_analysis <- function() {
     #------------------------------------------------------------------------
     
     # Apply label to the subject data.
-    names(s_data) <- "subject"
+    names(s_data) <- "Subject"
     
     # Bring all of the data together into a single data set.
     all_data <- cbind(x_data, y_data, s_data)
+    
+    # Rename some of the columns to be more human and machine readable.
+    names(all_data) <- gsub('\\(|\\)',"",names(all_data), perl = TRUE)
+    names(all_data) <- make.names(names(all_data))
+    names(all_data) <- gsub('Acc',"Acceleration",names(all_data))
+    names(all_data) <- gsub('GyroJerk',"AngularAcceleration",names(all_data))
+    names(all_data) <- gsub('Gyro',"AngularSpeed",names(all_data))
+    names(all_data) <- gsub('Mag',"Magnitude",names(all_data))
+    names(all_data) <- gsub('^t',"TimeDomain.",names(all_data))
+    names(all_data) <- gsub('^f',"FrequencyDomain.",names(all_data))
+    names(all_data) <- gsub('\\.mean',".Mean",names(all_data))
+    names(all_data) <- gsub('\\.std',".StandardDeviation",names(all_data))
+    names(all_data) <- gsub('Freq\\.',"Frequency.",names(all_data))
+    names(all_data) <- gsub('Freq$',"Frequency",names(all_data))
     
     #------------------------------------------------------------------------
     # 5. Create a separate, tidy data set with the average of each variable
@@ -76,7 +90,7 @@ run_analysis <- function() {
     
     all_df <- tbl_df(all_data)
     averages_dplyr <- all_df %>% 
-        group_by(subject, activity) %>%
+        group_by(Subject, Activity) %>%
         summarise_each(funs(mean))
     
     write.table(averages_dplyr, "data/tidy/averages_dplyr.txt", row.name=FALSE)
