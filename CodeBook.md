@@ -89,3 +89,283 @@ The following table lists the important variables in the script and what they re
 | activities                               | Activity names extracted from `activity_labels.txt`                                                                 |
 | all\_data                                | *x\_data*, *y\_data*, and *s\_data* merged together with cbind()                                                    |
 | averages\_dplyr                          | *all\_data* grouped by *subject* and *activity* and then summarized by applying the mean to each measurement column |
+
+## The Tidy Data
+
+    Subject		                            	                                    2
+    	Identification of participant in the study
+     		1..30.integer range
+             
+    Activity			                                                            16
+    	The type of activity the participate engaged in while the measurements
+        were taken
+     		WALKING
+            WALKING_UPSTAIRS
+            WALKING_DOWNSTAIRS
+            SITTING
+            STANDING
+            LAYING
+            
+    TimeDomain.BodyAcceleration.Mean.X			                                    13
+    	Value of the body acceleration's mean in the X direction (time domain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAcceleration.Mean.Y			                                    13
+    	Value of the body acceleration's mean in the Y direction (time domain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAcceleration.Mean.Z			                                    13
+    	Value of the body acceleration's mean in the Z direction (time domain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAcceleration.StandardDeviation.X			                        13
+    	Value of the body acceleration's standard deviation in the X direction (time domain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAcceleration.StandardDeviation.Y			                        13
+    	TimeDomain.BodyAcceleration.StandardDeviation.Y
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAcceleration.StandardDeviation.Z			                        13
+   	Value of the BodyAcceleration's StandardDeviation in the Z direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.GravityAcceleration.Mean.X			                                13
+   	Value of the GravityAcceleration's Mean in the X direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.GravityAcceleration.Mean.Y			                                13
+   	Value of the GravityAcceleration's Mean in the Y direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.GravityAcceleration.Mean.Z			                                13
+   	Value of the GravityAcceleration's Mean in the Z direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.GravityAcceleration.StandardDeviation.X			                    13
+   	Value of the GravityAcceleration's StandardDeviation in the X direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.GravityAcceleration.StandardDeviation.Y			                    13
+   	Value of the GravityAcceleration's StandardDeviation in the Y direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.GravityAcceleration.StandardDeviation.Z			                    13
+   	Value of the GravityAcceleration's StandardDeviation in the Z direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAccelerationJerk.Mean.X			                                13
+   	Value of the BodyAccelerationJerk's Mean in the X direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAccelerationJerk.Mean.Y			                                13
+   	Value of the BodyAccelerationJerk's Mean in the Y direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAccelerationJerk.Mean.Z			                                13
+   	Value of the BodyAccelerationJerk's Mean in the Z direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAccelerationJerk.StandardDeviation.X			                    13
+   	Value of the BodyAccelerationJerk's StandardDeviation in the X direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAccelerationJerk.StandardDeviation.Y			                    13
+   	Value of the BodyAccelerationJerk's StandardDeviation in the Y direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAccelerationJerk.StandardDeviation.Z			                    13
+   	Value of the BodyAccelerationJerk's StandardDeviation in the Z direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularSpeed.Mean.X			                                    13
+   	Value of the BodyAngularSpeed's Mean in the X direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularSpeed.Mean.Y			                                    13
+   	Value of the BodyAngularSpeed's Mean in the Y direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularSpeed.Mean.Z			                                    13
+   	Value of the BodyAngularSpeed's Mean in the Z direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularSpeed.StandardDeviation.X			                        13
+   	Value of the BodyAngularSpeed's StandardDeviation in the X direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularSpeed.StandardDeviation.Y			                        13
+   	Value of the BodyAngularSpeed's StandardDeviation in the Y direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularSpeed.StandardDeviation.Z			                        13
+   	Value of the BodyAngularSpeed's StandardDeviation in the Z direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularAcceleration.Mean.X			                            13
+   	Value of the BodyAngularAcceleration's Mean in the X direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularAcceleration.Mean.Y			                            13
+   	Value of the BodyAngularAcceleration's Mean in the Y direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularAcceleration.Mean.Z			                            13
+   	Value of the BodyAngularAcceleration's Mean in the Z direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularAcceleration.StandardDeviation.X			                13
+   	Value of the BodyAngularAcceleration's StandardDeviation in the X direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularAcceleration.StandardDeviation.Y			                13
+   	Value of the BodyAngularAcceleration's StandardDeviation in the Y direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularAcceleration.StandardDeviation.Z			                13
+   	Value of the BodyAngularAcceleration's StandardDeviation in the Z direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAccelerationMagnitude.Mean			                            13
+   	Value of the BodyAccelerationMagnitude's Me in the n direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAccelerationMagnitude.StandardDeviation			                13
+   	Value of the BodyAccelerationMagnitude's StandardDeviati in the n direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.GravityAccelerationMagnitude.Mean			                        13
+   	Value of the GravityAccelerationMagnitude's Me in the n direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.GravityAccelerationMagnitude.StandardDeviation			            13
+   	Value of the GravityAccelerationMagnitude's StandardDeviati in the n direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAccelerationJerkMagnitude.Mean			                        13
+   	Value of the BodyAccelerationJerkMagnitude's Me in the n direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAccelerationJerkMagnitude.StandardDeviation			            13
+   	Value of the BodyAccelerationJerkMagnitude's StandardDeviati in the n direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularSpeedMagnitude.Mean			                            13
+   	Value of the BodyAngularSpeedMagnitude's Me in the n direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularSpeedMagnitude.StandardDeviation			                13
+   	Value of the BodyAngularSpeedMagnitude's StandardDeviati in the n direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularAccelerationMagnitude.Mean			                    13
+   	Value of the BodyAngularAccelerationMagnitude's Me in the n direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    TimeDomain.BodyAngularAccelerationMagnitude.StandardDeviation			        13
+   	Value of the BodyAngularAccelerationMagnitude's StandardDeviati in the n direction (TimeDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAcceleration.Mean.X			                                13
+   	Value of the BodyAcceleration's Mean in the X direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAcceleration.Mean.Y			                                13
+   	Value of the BodyAcceleration's Mean in the Y direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAcceleration.Mean.Z			                                13
+   	Value of the BodyAcceleration's Mean in the Z direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAcceleration.StandardDeviation.X			                13
+   	Value of the BodyAcceleration's StandardDeviation in the X direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAcceleration.StandardDeviation.Y			                13
+   	Value of the BodyAcceleration's StandardDeviation in the Y direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAcceleration.StandardDeviation.Z			                13
+   	Value of the BodyAcceleration's StandardDeviation in the Z direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAccelerationJerk.Mean.X			                            13
+   	Value of the BodyAccelerationJerk's Mean in the X direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAccelerationJerk.Mean.Y			                            13
+   	Value of the BodyAccelerationJerk's Mean in the Y direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAccelerationJerk.Mean.Z			                            13
+   	Value of the BodyAccelerationJerk's Mean in the Z direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAccelerationJerk.StandardDeviation.X			            13
+   	Value of the BodyAccelerationJerk's StandardDeviation in the X direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAccelerationJerk.StandardDeviation.Y			            13
+   	Value of the BodyAccelerationJerk's StandardDeviation in the Y direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAccelerationJerk.StandardDeviation.Z			            13
+   	Value of the BodyAccelerationJerk's StandardDeviation in the Z direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAngularSpeed.Mean.X			                                13
+   	Value of the BodyAngularSpeed's Mean in the X direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAngularSpeed.Mean.Y			                                13
+   	Value of the BodyAngularSpeed's Mean in the Y direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAngularSpeed.Mean.Z			                                13
+   	Value of the BodyAngularSpeed's Mean in the Z direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAngularSpeed.StandardDeviation.X			                13
+   	Value of the BodyAngularSpeed's StandardDeviation in the X direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAngularSpeed.StandardDeviation.Y			                13
+   	Value of the BodyAngularSpeed's StandardDeviation in the Y direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAngularSpeed.StandardDeviation.Z			                13
+   	Value of the BodyAngularSpeed's StandardDeviation in the Z direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAccelerationMagnitude.Mean			                        13
+   	Value of the BodyAccelerationMagnitude's Me in the n direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyAccelerationMagnitude.StandardDeviation			            13
+   	Value of the BodyAccelerationMagnitude's StandardDeviati in the n direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyBodyAccelerationJerkMagnitude.Mean			                13
+   	Value of the BodyBodyAccelerationJerkMagnitude's Me in the n direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyBodyAccelerationJerkMagnitude.StandardDeviation			    13
+   	Value of the BodyBodyAccelerationJerkMagnitude's StandardDeviati in the n direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyBodyAngularSpeedMagnitude.Mean			                    13
+   	Value of the BodyBodyAngularSpeedMagnitude's Me in the n direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyBodyAngularSpeedMagnitude.StandardDeviation			        13
+   	Value of the BodyBodyAngularSpeedMagnitude's StandardDeviati in the n direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyBodyAngularAccelerationMagnitude.Mean			            13
+   	Value of the BodyBodyAngularAccelerationMagnitude's Me in the n direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
+             
+    FrequencyDomain.BodyBodyAngularAccelerationMagnitude.StandardDeviation			13
+   	Value of the BodyBodyAngularAccelerationMagnitude's StandardDeviati in the n direction (FrequencyDomain).
+     		-1.0..1.0 .floating point range
